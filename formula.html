@@ -1,0 +1,40 @@
+<script src="formula.js"></script>
+<script src="formula-util.js"></script>
+<link rel="stylesheet" type="text/css" href="formula.css">
+
+<div id="controls">
+	<button onclick="formula.render()">render</button>|
+	<button onclick="formula.addTextBlock()">text</button>
+	<button onclick="formula.addFracBlock()">frac</button>
+	<button onclick="formula.addSupBlock()">sup</button>
+	<button onclick="formula.addSubBlock()">sub</button>
+	<button onclick="formula.addIntBlock()">int</button>
+</div>
+<div id="formula"></div>
+
+<button onclick="toLatex()">toLatex</button>
+<pre id="toLatex"></pre>
+<pre><img id="toLatexImg" style="display: block;"></pre>
+
+<button onclick="toJson()">toJson</button>
+<pre id="toJson"></pre>
+
+<script>
+var formula = new Formula("formula");
+
+function toLatex() {
+	var latex = formula.toLatex();
+	document.getElementById("toLatex").textContent = latex;
+
+	var img = document.getElementById("toLatexImg");
+	img.onload = function() {
+		this.style.width = null;
+		this.style.width = this.width/2 + "px";
+	}
+	img.src = "http://latex.codecogs.com/gif.download?"
+		+ encodeURIComponent("\\dpi{300} " + latex);
+}
+function toJson() {
+	document.getElementById("toJson").textContent = formula.toJson();
+}
+</script>

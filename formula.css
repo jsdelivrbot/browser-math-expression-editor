@@ -1,0 +1,89 @@
+#formula, #controls button {
+	font-size: 24px;
+}
+#formula, pre {
+	padding: 8px;
+	border: 1px solid #CCC;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+pre {
+	white-space: pre-wrap; 
+}
+
+.block-container {
+	display: inline-block;
+}
+
+.block {
+	display: inline-block;
+	vertical-align: baseline;
+	padding-left: 0.1em;
+	padding-right: 0.1em;
+}
+
+.text-block:empty {
+	background-color: #EEE;
+	border: 1px #CCC dashed;
+	min-width: 1em;
+}
+
+.frac-block {
+	vertical-align: middle;
+}
+.frac-line {
+	border-bottom: 1px solid #000;
+}
+.frac-up, .frac-down {
+	display: block;
+	text-align: center;
+}
+
+
+.sup-base .text-block {
+	padding-right: 0;
+}
+.sup-sup {
+	vertical-align: super;
+	font-size: 0.7em;
+	padding: 0;
+}
+
+.sub-base .text-block {
+	padding-right: 0;
+}
+.sub-sub {
+	vertical-align: sub;
+	font-size: 0.7em;
+	padding: 0;
+}
+
+.int-block {
+}
+.int-block img {
+	height: 2em;
+	display: inline-block;
+	vertical-align: middle;
+}
+.int-container {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0.2em;
+}
+.int-up {
+	position: relative;
+	display: block;
+	font-size: 0.7em;
+	top: -0.4em;
+	left: 0.25em;
+}
+.int-down {
+	position: relative;
+	display: block;
+	font-size: 0.7em;
+	top: 0.35em;
+	left: -0.25em;
+}
+.int-mid {
+	vertical-align: middle;
+}
