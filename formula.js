@@ -133,22 +133,24 @@ class Block {
 class TextBlock extends Block {
 	create() {
 		this.type = "text";
-		this.text = "";
+		this.display_text = ""; // text with symbols replaced
+		this.text = ""; // raw typed text
 	}
 
 	render() {
 		var div = document.createElement("div");
 		div.className = "block text-block";
-		div.innerHTML = this.text;
+		div.innerHTML = this.display_text;
 		div.contentEditable = true;
 
 		(function(block) {
 			// CONTROLLER
 			div.onblur = function() {
+				block.text = this.innerHTML;
 				if (this.innerHTML == "-") {
 					this.innerHTML = "&minus;";
 				}
-				block.text = this.innerHTML;
+				block.display_text = this.innerHTML;
 			}
 			div.onkeypress = function(e) {
 				if (e.keyCode == 13) { // enter
@@ -176,7 +178,7 @@ class TextBlock extends Block {
 		}
 	}
 	toJson() {
-		return {type: "text", text: this.text};
+		return {type: "text", text: this.text, display_text: this.display_text};
 	}
 }
 
